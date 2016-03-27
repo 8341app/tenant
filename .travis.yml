@@ -1,0 +1,12 @@
+language: node
+cache:
+  - mom
+  - apt
+
+install:
+  - bin/install
+
+# command to run tests
+script:
+  - cp .env-sample .env
+  - bin/test
