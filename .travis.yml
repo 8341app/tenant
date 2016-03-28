@@ -1,6 +1,10 @@
-language: node
+language: node_js
+
+node_js:
+  - "5.9.1"
+
 cache:
-  - mom
+  - npm
   - apt
 
 install:

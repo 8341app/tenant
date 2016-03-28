@@ -14,15 +14,9 @@ var tsc = require('gulp-typescript');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var insert = require('gulp-insert');
-
-
-    var sass = require('gulp-sass');
-
-
-
-    var jade = require('gulp-jade');
-
-
+var sass = require('gulp-sass');
+var jade = require('gulp-jade');
+var karma = require('karma');
 
 var Builder = require('systemjs-builder');
 var del = require('del');
@@ -176,17 +170,17 @@ gulp.task('build.jade.dev', function() {
 
 gulp.task('build.assets.dev', [
     'build.js.dev'
-    
+
     ,'build.jade.dev'
-    
+
 ], function () {
 
-    
+
         gulp.src(['./app/**/*.sass', './app/**/*.scss'])
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(PATH.dest.dev.all));
 
-    
+
 
 
 
@@ -277,16 +271,16 @@ gulp.task('build.jade.prod', function() {
 
 gulp.task('build.assets.prod', [
     'build.js.prod'
-    
+
     ,'build.jade.prod'
-    
+
 ], function () {
-    
+
         gulp.src(['./app/**/*.sass', './app/**/*.scss'])
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest(PATH.dest.dev.all));
 
-    
+
 
     var filterHTML = filter('**/*.html');
     var filterCSS = filter('**/*.css');
@@ -334,7 +328,28 @@ gulp.task('bump.reset', function () {
 // --------------
 // Test.
 
-// To be implemented.
+gulp.task('test', function(done) {
+  // runTests(true, done);
+  // pathSrcJs.forEach(function(path) {
+  //   preprocessors[path] = ['coverage'];
+  // });
+  // reporters.push('coverage')
+
+var localConfig = {
+  configFile: path.join(__dirname, '/karma.conf.js'),
+  // singleRun: singleRun,
+  // autoWatch: !singleRun,
+  // reporters: reporters,
+  // preprocessors: preprocessors
+};
+
+// var server = new karma.Server(localConfig, function(failCount) {
+//   done(failCount ? new Error("Failed " + failCount + " tests.") : null);
+// })
+// server.start();
+// done()
+
+});
 
 // --------------
 // Serve dev.
