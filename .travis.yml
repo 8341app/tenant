@@ -10,7 +10,9 @@ cache:
 install:
   - bin/install
 
-# command to run tests
+before_script:
+  - npm install -g gulp
+
 script:
   - cp .env-sample .env
   - bin/test
