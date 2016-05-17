@@ -19,7 +19,7 @@ var Home = (function () {
             selector: 'component-1'
         }),
         angular2_1.View({
-            templateUrl: './components/home/home.html?v=0.0.0',
+            templateUrl: './components/home/home.html?v=0.0.1',
             directives: [router_1.RouterLink]
         }), 
         __metadata('design:paramtypes', [])

@@ -24,7 +24,7 @@ var About = (function () {
             selector: 'component-2'
         }),
         angular2_1.View({
-            templateUrl: './components/about/about.html?v=0.0.0',
+            templateUrl: './components/about/about.html?v=0.0.1',
             directives: [angular2_1.NgFor]
         }), 
         __metadata('design:paramtypes', [NameList_1.NamesList])
