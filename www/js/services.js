@@ -1,5 +1,5 @@
 function LandlordAPI($http, $q) {
-  var url = "https://53itz1tr4j.execute-api.us-east-1.amazonaws.com/staging/";
+  var url = "https://iulx2zzxyk.execute-api.us-east-1.amazonaws.com/staging/";
   // var url = "https://g28dse4xfi.execute-api.us-east-1.amazonaws.com/production/";
 
   this.get = function(collection, params){
