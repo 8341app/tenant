@@ -1,10 +1,7 @@
-function LandlordAPI($http, $q) {
-  var url = "https://iulx2zzxyk.execute-api.us-east-1.amazonaws.com/staging/";
-  // var url = "https://g28dse4xfi.execute-api.us-east-1.amazonaws.com/production/";
-
+function LandlordAPI($http, $q, LANDLORD_API_URL) {
   this.get = function(collection, params){
     var deferred = $q.defer();
-    $http.get(url + collection, {params: params})
+    $http.get(LANDLORD_API_URL + collection, {params: params})
     .success( function(data) {
       deferred.resolve(data);
     })
@@ -17,7 +14,7 @@ function LandlordAPI($http, $q) {
 
   this.post = function(collection, data){
     var deferred = $q.defer();
-    $http.post(url + collection, data)
+    $http.post(LANDLORD_API_URL + collection, data)
     .success( function(data) {
       deferred.resolve(data);
     })
@@ -29,7 +26,6 @@ function LandlordAPI($http, $q) {
   };
 
 };
-
 
 angular.module('app.services', [])
   .factory('BlankFactory', [function(){}])
