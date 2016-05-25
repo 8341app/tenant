@@ -15,14 +15,23 @@ angular.module('app.controllers', [])
     }
 
     landlord.post('requests', payload).then(function(data) {
-      console.log(data);
+      // console.log(data);
     });
   };
 
 })
 
-.controller('allRequestsCtrl', function($scope) {
+.controller('allRequestsCtrl', function($scope, landlord) {
+  $scope.get_requests = function() {
+    landlord.get('requests').then(function(data) {
+      $scope.count = data['Count'];
+      $scope.all_requests = data['Items'];
+      $scope.$broadcast('scroll.refreshComplete');
+      console.log(data);
+    });
+  };
 
+  $scope.get_requests();
 })
 
 .controller('logInCtrl', function($scope) {
